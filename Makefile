@@ -26,7 +26,7 @@ proto:
 
 
 .PHONY: run
-run: proto
+run: proto models
 	go run src/main.go
 
 

@@ -11,49 +11,9 @@ service PokemonCRUDService {
   // For Sanity
   rpc Test (TestReq) returns (TestRes) {}
 
-  rpc CreatePokemon (CreatePokemonReq) returns (CreatePokemonRes) {}
-  rpc ReadPokemon (ReadPokemonReq) returns (ReadPokemonRes) {}
-
-  rpc UpdatePokemonPoints (UpdatePokemonPointsReq) returns (UpdatePokemonPointsRes) {}
-  rpc DeletePokemon (DeletePokemonReq) returns (DeletePokemonRes) {}
-
+  // TODO: step 4! Add definitions to CRUD pokemon here
 }
 
 
 message TestReq { string name = 1; }
 message TestRes { string message = 1; }
-
-message Pokemon {
-  int32 id = 1;
-  string type = 2;
-  string name = 3;
-  int32 points = 4;
-}
-
-message CreatePokemonReq {
-  Pokemon pokemonInfo = 1;
-}
-message CreatePokemonRes {
-  string message = 1;
-}
-message ReadPokemonReq {
-  int32 id = 1;
-}
-message ReadPokemonRes {
-  Pokemon pokemon = 1;
-}
-
-message UpdatePokemonPointsReq {
-  int32 id = 1;
-  int32 points = 2;
-}
-message UpdatePokemonPointsRes {
-  string message = 1;
-}
-
-message DeletePokemonReq {
-  int32 id = 1;
-}
-message DeletePokemonRes {
-  string message = 1;
-}
