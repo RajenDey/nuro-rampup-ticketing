@@ -12,8 +12,55 @@ service PokemonCRUDService {
   rpc Test (TestReq) returns (TestRes) {}
 
   // TODO: step 4! Add definitions to CRUD pokemon here
+  rpc CreatePokemon (CreatePokemonReq) returns (CreatePokemonRes) {}
+
+  rpc ReadPokemon (ReadPokemonReq) returns (ReadPokemonRes) {}
+
+  rpc UpdatePokemon (UpdatePokemonReq) returns (UpdatePokemonRes) {}
+
+  rpc DeletePokemon (DeletePokemonReq) returns (DeletePokemonRes) {}
 }
 
 
 message TestReq { string name = 1; }
 message TestRes { string message = 1; }
+
+message Pokemon {
+  string Type = 1;
+  string Name = 2;
+  int32 Points = 3;
+  int32 ID = 4;
+}
+
+message CreatePokemonReq {
+  Pokemon pokemon = 1;
+}
+
+message CreatePokemonRes {
+  bool success = 1;
+}
+
+message ReadPokemonReq {
+  int32 ID = 1;
+}
+
+message ReadPokemonRes {
+  Pokemon pokemon = 1;
+}
+
+message UpdatePokemonReq {
+  int32 ID = 1;
+  int32 Points = 2;
+}
+
+message UpdatePokemonRes {
+  bool success = 1;
+}
+
+message DeletePokemonReq {
+  int32 ID = 1;
+}
+
+message DeletePokemonRes {
+  bool success = 1;
+}
