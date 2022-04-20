@@ -58,6 +58,12 @@ func (s *server) UpdatePokemon(ctx context.Context, in *pb.UpdatePokemonReq) (*p
 	return &pb.UpdatePokemonRes{Success: true}, nil
 }
 
+func (s *server) DeletePokemon(ctx context.Context, in *pb.DeletePokemonReq) (*pb.DeletePokemonRes, error) {
+	ID := in.GetID()
+	db_global.Exec("DELETE FROM pokemon WHERE ID = ?", ID)
+	return &pb.DeletePokemonRes{Success: true}, nil
+}
+
 // Starts the Server
 func main() {
 
